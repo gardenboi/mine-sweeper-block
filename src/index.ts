@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-import { registerBlockType } from '@wordpress/blocks';
+import { BlockAttributes, registerBlockType } from '@wordpress/blocks';
 //import { useBlockProps } from '@wordpress/block-editor';
 
 /**
@@ -17,7 +17,8 @@ import './style.scss';
 /**
  * Internal dependencies
  */
-import metadata from './block.json';
+import jsonData from './block.json';
+const metadata = jsonData as BlockAttributes;
 import { Edit } from './edit';
 import save from './save';
 

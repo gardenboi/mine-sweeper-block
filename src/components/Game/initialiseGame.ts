@@ -1,14 +1,16 @@
+
+import { GameTypes } from "./types";
 /**
  * Places a single bomb in a grid represented by a two-dimensional array.
  * @param {boolean[][]} bombs - 1D or 2D rows depending on the call
  * @param {number} numOfRows - from Game
  * @param {number} numOfCols - from Game
  */
-function placeSingleBomb(bombs, numOfRows, numOfCols) {
-	let row;
+function placeSingleBomb(bombs:boolean[][], tableRows:number, tableCols:number) {
+	let row : boolean[];
 	// Generate random row and column indices
-	const nrow = Math.floor(Math.random() * numOfRows);
-	const ncol = Math.floor(Math.random() * numOfCols);
+	const nrow = Math.floor(Math.random() * tableRows);
+	const ncol = Math.floor(Math.random() * tableCols);
 	// Access the row at the randomly generated nrow index
 	row = bombs[nrow];
 	// If the row doesn't exist, initialize it as an empty array
@@ -23,23 +25,23 @@ function placeSingleBomb(bombs, numOfRows, numOfCols) {
 		row[ncol] = true;
 	} else {
 		// If the cell is already occupied by a bomb, retry the placement
-		placeSingleBomb(bombs, numOfRows, numOfCols);
+		placeSingleBomb(bombs, tableRows, tableCols);
 	}
 }
 
 /**
  * Generates a grid with randomly placed bombs.
- * @param {number} numOfRows - The number of rows in the grid.
- * @param {number} numOfCols - The number of columns in the grid.
- * @param {number} numOfBombs - The total number of bombs to be placed in the grid.
+ * @param {number} tableRows - The number of rows in the grid.
+ * @param {number} tableCols - The number of columns in the grid.
+ * @param {number} bombCount - The total number of bombs to be placed in the grid.
  * @return {boolean[][]} A grid with randomly placed bombs, represented as a two-dimensional array.
  */
-function placeBombs(numOfRows, numOfCols, numOfBombs) {
+function placeBombs(tableRows: number, tableCols:number, bombCount:number):boolean[][] {
 	let i;
-	const rows = [];
+	const rows: boolean[][] = [];
 
-	for (i = 0; i < numOfBombs; i++) {
-		placeSingleBomb(rows, numOfRows, numOfCols);
+	for (i = 0; i < bombCount; i++) {
+		placeSingleBomb(rows, tableRows, tableCols);
 	}
 	return rows;
 }
@@ -47,11 +49,11 @@ function placeBombs(numOfRows, numOfCols, numOfBombs) {
 /**
  * Populates a two-dimensional array with randomly placed bombs to create a game grid.
  *
- * @param {number} numOfRows - The number of rows in the game grid.
- * @param {number} numOfCols - The number of columns in the game grid.
- * @param {number} numOfBombs - The total number of bombs to be placed in the game grid.
+ * @param {number} tableRows - The number of rows in the game grid.
+ * @param {number} tableCols - The number of columns in the game grid.
+ * @param {number} bombCount - The total number of bombs to be placed in the game grid.
  * @return {boolean[][]} A game grid with randomly placed bombs, represented as a two-dimensional array.
  */
-export default function populateBombArray(numOfRows, numOfCols, numOfBombs) {
-	return placeBombs(numOfRows, numOfCols, numOfBombs);
+export default function populateBombArray({tableRows, tableCols, bombCount}:GameTypes) {
+	return placeBombs(tableRows as number, tableCols as number, bombCount as number);
 }

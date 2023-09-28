@@ -5,6 +5,14 @@
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
+    "files": [
+        "build/*",
+        "!build/types/*",
+        "block.json",
+        "svg-block.php",
+        "LICENSE.md",
+        "readme.txt"
+    ],
 	"scripts": {
 		"build": "wp-scripts build",
 		"format": "wp-scripts format",
