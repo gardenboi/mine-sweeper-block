@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/mineswper",
+	"version": "0.1.0",
+	"title": "Mineswper",
+	"category": "widgets",
+	"description": "Example block scaffolded with Create Block tool.",
+	"textdomain": "mineswper",
+	"attributes": {
+		"style": {
+			"type": "object",
+			"default": {}
+		},
+		"tableRows": {
+			"type": "number",
+			"default": 12
+		},
+		"tableCols": {
+			"type": "number",
+			"default": 24
+		},
+		"bombCount": {
+			"type": "number",
+			"default": 55
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

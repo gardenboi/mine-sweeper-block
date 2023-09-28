@@ -1,14 +1,20 @@
-const Save = () => {
-	return (
-		<div id="mineswper">
-			<div id="field" style="margin: 200px auto 0"></div>
-			<div id="lost" style="display: none;">
-				<button id="new-game-button" type="button">
-					reload
-				</button>
-			</div>
-		</div>
-	);
-};
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+import { useBlockProps } from '@wordpress/block-editor';
 
-export default Save;
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+export default function save() {
+	return <div {...useBlockProps.save()} />;
+}

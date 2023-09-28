@@ -1,38 +1,49 @@
 {
-    "name": "mineswper",
-    "version": "1.0.0",
-    "author": "Erik",
-    "license": "GPL-2.0-or-later",
-    "main": "build/mineswper.js",
-    "files": [
-        "build/*",
-        "mineswper.php",
-        "LICENSE.md",
-        "readme.txt"
-    ],
-    "scripts": {
-        "build": "wp-scripts build",
-        "start": "wp-scripts start",
-        "format": "wp-scripts format",
-        "lint:css": "wp-scripts lint-style",
-        "lint:js": "wp-scripts lint-js",
-        "docGen": "jsdoc -c jsdoc.conf.json",
-        "packages-update": "wp-scripts packages-update",
-        "plugin-zip": "wp-scripts plugin-zip"
-    },
-    "devDependencies": {
-        "@wordpress/scripts": "^24.4.0"
-    },
-    "engines": {
-        "node": ">=14.0.0",
-        "npm": ">=6.9.0"
-    },
-    "eslintConfig": {
-        "extends": [
-            "plugin:@wordpress/eslint-plugin/recommended"
-        ]
-    },
-    "browserslist": [
-        "extends @wordpress/browserslist-config"
-    ]
+	"name": "mineswper",
+	"version": "0.1.0",
+	"description": "Example block scaffolded with Create Block tool.",
+	"author": "The WordPress Contributors",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^26.13.0"
+	},
+	"browserslist": [
+		"extends @wordpress/browserslist-config"
+	],
+	"eslintConfig": {
+		"extends": [
+			"plugin:@wordpress/eslint-plugin/recommended",
+			"plugin:jsdoc/recommended"
+		],
+		"env": {
+			"browser": true,
+			"es6": true,
+			"jquery": true
+		},
+		"parser": "@typescript-eslint/parser",
+		"globals": {
+			"jQuery": true,
+			"$": true
+		}
+	},
+	"stylelint": {
+		"extends": [
+			"@wordpress/stylelint-config",
+			"@wordpress/stylelint-config/scss"
+		]
+	},
+	"prettier": "@wordpress/prettier-config",
+	"dependencies": {
+		"@wordpress/block-editor": "^12.10.0"
+	}
 }

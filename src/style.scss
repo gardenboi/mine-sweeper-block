@@ -1,0 +1,66 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-mineswper {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+}
+.wp-block-mineswper {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+}
+  
+
+$color_1: black;
+$font-family_1: sans-serif;
+$background-color_1: #ffffff;
+$background-color_2: #c3c3c3;
+$background-color_3: rgb(60, 60, 60);
+$background-color_4: red;
+
+#mineswper {
+	font-family: $font-family_1;
+	font-weight: bold;
+	font-size: 16px;
+	display: inline-table;
+	text-align: center;
+	>#field {
+		>table {
+			border-collapse: collapse;
+			display: inline-block;
+		}
+		>tbody {
+			>tr {
+				>td {
+					background-color: $background-color_1;
+					width: 30px;
+					min-width: 30px;
+					height: 30px;
+					min-height: 30px;
+					border: 1px solid black;
+					color: $color_1;
+				}
+				>td.clicked {
+					background-color: $background-color_3;
+				}
+				>td.bomb {
+					background-color: $background-color_4;
+				}
+			}
+		}
+	}
+	button {
+		width: 100px;
+		height: 30px;
+		background-color: $background-color_2;
+		color: $color_1;
+		border-radius: 20px 20px 20px 20px;
+		font-size: 20px;
+	}
+}
