@@ -1,0 +1,21 @@
+{
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
+    },
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+
+    "env": {
+        "es6": true
+    }
+}

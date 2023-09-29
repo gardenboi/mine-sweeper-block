@@ -1,26 +1,18 @@
 {
 	"compilerOptions": {
-		"target": "ES6",
-		"module": "esnext",
-		"jsx": "react-jsx",
-		"moduleResolution": "node",
-		// Search under node_modules for non-relative imports.
-		"allowJs": true,
-		// Process & infer types from .js files.
-		"noEmit": true,
-		// Don't emit; allow Babel to transform files.
-		"outDir": "build",
-		"baseUrl": "./src",
-		"resolveJsonModule": true,
+	  "target": "ESNext",
+	  "module": "ESNext",
+	  "jsx": "react-jsx",
+	  "moduleResolution": "Node",
+	  "resolveJsonModule": true,
+	  "allowSyntheticDefaultImports":true,
+	  "typeRoots": [
+		"node_modules/@types",
+		"@types"
+	  ],
+	  "paths": {
+		"*" : ["./src/*.d.ts"]
+	  }
 	},
-	"include": [
-		"./src/**/*.ts",
-		"./src/**/*.tsx",
-	],
-
-
-	"exclude": [
-		"coverage",
-		"docs"
-	]
-}
+	"include": ["./src/*.tsx"]
+  }

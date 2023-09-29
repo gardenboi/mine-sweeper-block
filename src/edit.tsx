@@ -21,6 +21,7 @@ import { RangeControl, Panel, PanelBody } from '@wordpress/components';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import { BlockAttributes, BlockEditProps } from '@wordpress/blocks';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -31,7 +32,7 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export const Edit = (props) => {
+export const Edit = (props: BlockEditProps<BlockAttributes>): JSX.Element => {
 	const { attributes, setAttributes } = props;
 
 	return (

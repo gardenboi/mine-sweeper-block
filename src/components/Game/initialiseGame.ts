@@ -1,13 +1,16 @@
-
-import { GameTypes } from "./types";
+import { GameTypes } from './types';
 /**
  * Places a single bomb in a grid represented by a two-dimensional array.
  * @param {boolean[][]} bombs - 1D or 2D rows depending on the call
  * @param {number} numOfRows - from Game
  * @param {number} numOfCols - from Game
  */
-function placeSingleBomb(bombs:boolean[][], tableRows:number, tableCols:number) {
-	let row : boolean[];
+function placeSingleBomb(
+	bombs: boolean[][],
+	tableRows: number,
+	tableCols: number
+) {
+	let row: boolean[];
 	// Generate random row and column indices
 	const nrow = Math.floor(Math.random() * tableRows);
 	const ncol = Math.floor(Math.random() * tableCols);
@@ -36,7 +39,11 @@ function placeSingleBomb(bombs:boolean[][], tableRows:number, tableCols:number) 
  * @param {number} bombCount - The total number of bombs to be placed in the grid.
  * @return {boolean[][]} A grid with randomly placed bombs, represented as a two-dimensional array.
  */
-function placeBombs(tableRows: number, tableCols:number, bombCount:number):boolean[][] {
+function placeBombs(
+	tableRows: number,
+	tableCols: number,
+	bombCount: number
+): boolean[][] {
 	let i;
 	const rows: boolean[][] = [];
 
@@ -54,6 +61,14 @@ function placeBombs(tableRows: number, tableCols:number, bombCount:number):boole
  * @param {number} bombCount - The total number of bombs to be placed in the game grid.
  * @return {boolean[][]} A game grid with randomly placed bombs, represented as a two-dimensional array.
  */
-export default function populateBombArray({tableRows, tableCols, bombCount}:GameTypes) {
-	return placeBombs(tableRows as number, tableCols as number, bombCount as number);
+export default function populateBombArray({
+	tableRows,
+	tableCols,
+	bombCount,
+}: GameTypes) {
+	return placeBombs(
+		tableRows as number,
+		tableCols as number,
+		bombCount as number
+	);
 }

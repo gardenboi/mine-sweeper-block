@@ -1,6 +1,13 @@
 import populateBombArray from './initialiseGame';
-import { happyFace, deadFace, bombEmoji, flagEmoji, colors, cellColor } from './components';
-import { GameTypes } from './types'
+import {
+	happyFace,
+	deadFace,
+	bombEmoji,
+	flagEmoji,
+	colors,
+	cellColor,
+} from './components';
+import { GameTypes } from './types';
 
 /**
  * Initializes and starts a game using provided game constants.
@@ -39,7 +46,13 @@ function getElementPosition(row: number, col: number, g: GameTypes): number {
 	return row * g.tableCols + col; // Simple matrix to position calculation referenced in Grid.jsx
 }
 
-export function gameHandler(row: number, col: number, clickType: number, g: GameTypes) {
+export function gameHandler(
+	row: number,
+	col: number,
+	clickType: number,
+	g: GameTypes
+) {
+	// eslint-disable-next-line @wordpress/no-unused-vars-before-return
 	const pos = getElementPosition(row, col, g);
 
 	if (!g.alive) {
@@ -188,8 +201,7 @@ function clickAdjacentBombs(row: number, col: number, g: GameTypes) {
 			) {
 				setTimeout(() => {
 					handleCellClick(pos, row + i, col + j, g);
-				}, delayIncrement)
-
+				}, delayIncrement);
 			}
 		}
 	}
@@ -204,7 +216,9 @@ function clickAdjacentBombs(row: number, col: number, g: GameTypes) {
 function performMassClick(row: number, col: number, g: GameTypes) {
 	//case not covered, could throw error
 	console.log(
-		`condition :${adjacentFlags(row, col, g) === adjacentBombs(row, col, g)}`
+		`condition :${
+			adjacentFlags(row, col, g) === adjacentBombs(row, col, g)
+		}`
 	);
 	if (adjacentFlags(row, col, g) === adjacentBombs(row, col, g)) {
 		clickAdjacentBombs(row, col, g);
@@ -229,9 +243,11 @@ function gameOver(g: GameTypes, lastClicked: number) {
 
 				setTimeout(() => {
 					g.aRef.current[pos].textContent = bombEmoji;
-					g.aRef.current[pos].style.backgroundColor = cellColor['bomb'];
+					g.aRef.current[pos].style.backgroundColor =
+						cellColor['bomb'];
 					if (pos === lastClicked) {
-						g.aRef.current[pos].style.backgroundColor = cellColor['red'];
+						g.aRef.current[pos].style.backgroundColor =
+							cellColor['red'];
 					}
 				}, delayIncrement);
 
@@ -246,11 +262,10 @@ function gameOver(g: GameTypes, lastClicked: number) {
  * @param {GameTypes} g - An instance of the GameConstants class containing game constants.
  */
 export function restart(g: GameTypes) {
-	
 	const delay = 10;
 	let delayIncrement = 0;
 	for (let i = 0; i < g.tableCols * g.tableRows; i++) {
-		if (i> i*(i%g.tableCols)) delayIncrement += delay;
+		if (i > i * (i % g.tableCols)) delayIncrement += delay;
 		setTimeout(() => {
 			g.aRef.current[i].textContent = '';
 			g.aRef.current[i].style.backgroundColor = cellColor['grey'];
@@ -258,7 +273,7 @@ export function restart(g: GameTypes) {
 	}
 
 	for (let i = 0; i < g.tableCols * g.tableRows; i++) {
-		if (i> i*(i%g.tableCols)) delayIncrement += delay;
+		if (i > i * (i % g.tableCols)) delayIncrement += delay;
 		setTimeout(() => {
 			g.aRef.current[i].textContent = '';
 			g.aRef.current[i].style.backgroundColor = cellColor['default'];

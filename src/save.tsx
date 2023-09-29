@@ -15,6 +15,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save(): JSX.Element {
 	return <div {...useBlockProps.save()} />;
 }
