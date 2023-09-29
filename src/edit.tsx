@@ -42,7 +42,7 @@ export const Edit = (props: BlockEditProps<BlockAttributes>): JSX.Element => {
 					<PanelBody title={'sdsds'}>
 						<RangeControl
 							label={'Rows'}
-							value={attributes.tableRows}
+							value={attributes.tableRows as number}
 							step={1}
 							onChange={(e) => {
 								setAttributes({ tableRows: e });
@@ -53,7 +53,7 @@ export const Edit = (props: BlockEditProps<BlockAttributes>): JSX.Element => {
 
 						<RangeControl
 							label={'Cols'}
-							value={attributes.tableCols}
+							value={attributes.tableCols as number}
 							step={1}
 							onChange={(e) => {
 								setAttributes({ tableCols: e });
@@ -64,7 +64,7 @@ export const Edit = (props: BlockEditProps<BlockAttributes>): JSX.Element => {
 
 						<RangeControl
 							label={'Bombs'}
-							value={attributes.bombCount}
+							value={attributes.bombCount as number}
 							step={1}
 							onChange={(e) => {
 								setAttributes({ bombCount: e });

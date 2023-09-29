@@ -28,7 +28,8 @@ export default function Game(props: Props) {
 		tableCols,
 		bombCount,
 		aRef,
-		reloadBtn as MutableRefObject<HTMLButtonElement>
+		reloadBtn as MutableRefObject<HTMLButtonElement>,
+		new Array<Array<boolean>>
 	);
 
 	/**

@@ -18,3 +18,4 @@ export const cellColor: { [key: string]: string } = {
 	grey: '#cacaca',
 	bomb: '#522929',
 };
+ 

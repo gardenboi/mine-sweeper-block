@@ -25,7 +25,7 @@ export class GameObject implements GameTypes {
 		public bombCount: number,
 		public aRef: MutableRefObject<HTMLTableCellElement[]>,
 		public reloadBtn: MutableRefObject<HTMLButtonElement>,
-		public bombs: boolean[][] = [],
+		public bombs: boolean[][],
 		public cellFlagged: boolean[][] = [],
 		public cellClicked: boolean[][] = [],
 		public mouseswitches: number = 0,

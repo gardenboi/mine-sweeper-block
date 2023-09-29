@@ -9,44 +9,48 @@ const Grid = forwardRef<HTMLTableCellElement[], Props>((props: Props, ref: Ref<H
 			tableCols,
 		} = arg;
 
-		const rows = [];
-
-		for (let i = 0; i < tableRows; i++) {
-			const cells = [];
-			for (let j = 0; j < tableCols; j++) {
-				const cellKey = [i, j];
-
-				const idx = i * tableCols + j;
-				const cell = (
-					<td
-						key={cellKey.toString()}
-						data-row={i}
-						data-col={j}
-						data-hidden-attribute={false}
-						ref={(el) => {
-							if (el) {
-								if (!(ref as MutableRefObject<HTMLTableCellElement[]>).current) {
-									(ref as MutableRefObject<HTMLTableCellElement[]>).current = [];
+		const rows = () => {
+			const rows:JSX.Element[] = []
+			for (let i = 0; i < tableRows; i++) {
+				const cells = [];
+				for (let j = 0; j < tableCols; j++) {
+					const cellKey = [i, j];
+	
+					const idx = i * tableCols + j;
+					const cell = (
+						<td
+							key={cellKey.toString()}
+							data-row={i}
+							data-col={j}
+							data-hidden-attribute={false}
+							ref={(el) => {
+								if (el) {
+									if (!(ref as MutableRefObject<HTMLTableCellElement[]>).current) {
+										(ref as MutableRefObject<HTMLTableCellElement[]>).current = [];
+									}
+									(ref as MutableRefObject<HTMLTableCellElement[]>).current[idx] = el;
 								}
-								(ref as MutableRefObject<HTMLTableCellElement[]>).current[idx] = el;
-							}
-						}}
-					>
-						{/* Cell content */}
-					</td>
-				);
-				cells.push(cell);
+							}}
+						>
+							{/* Cell content */}
+						</td>
+					);
+					cells.push(cell);
+				}
+				
+				const rowKey = i;
+				const row: JSX.Element = <tr key={rowKey}>{cells}</tr>;
+				rows.push(row);
+				
 			}
-
-			const rowKey = i;
-			const row = <tr key={rowKey}>{cells}</tr>;
-
-			rows.push(row);
+			return rows
 		}
+		// from here
+		//to here
 
 		return (
 			<table id="field">
-				<tbody>{rows}</tbody>
+				<tbody>{rows()}</tbody>
 			</table>
 		);
 	};

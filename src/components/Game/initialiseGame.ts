@@ -18,7 +18,7 @@ function placeSingleBomb(
 	row = bombs[nrow];
 	// If the row doesn't exist, initialize it as an empty array
 	if (!row) {
-		row = [];
+		row = new Array<boolean>(tableRows);
 		bombs[nrow] = row;
 	}
 	// Access the column at the randomly generated ncol index within the row
@@ -45,12 +45,17 @@ function placeBombs(
 	bombCount: number
 ): boolean[][] {
 	let i;
-	const rows: boolean[][] = [];
+	const grid = new Array<Array<boolean>>(tableRows);
+	for (let i = 0; i < tableRows; i++) {
+		grid[i] = new Array<boolean>(tableCols);
+	}
+	//const rows= new Array<Array<boolean>>(tableRows;
 
 	for (i = 0; i < bombCount; i++) {
-		placeSingleBomb(rows, tableRows, tableCols);
+		placeSingleBomb(grid, tableRows, tableCols);
 	}
-	return rows;
+	console.table(grid)
+	return grid;
 }
 
 /**
@@ -65,7 +70,7 @@ export default function populateBombArray({
 	tableRows,
 	tableCols,
 	bombCount,
-}: GameTypes) {
+}: GameTypes): boolean[][] {
 	return placeBombs(
 		tableRows as number,
 		tableCols as number,
